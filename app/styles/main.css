@@ -88,16 +88,32 @@ hr {
 body {
     background: url('/images/door_background.png') no-repeat fixed center center;
     background-size: cover;
+    min-width: 320px;
 }
 
 h1.title {
-    margin: 100px auto 16px;
+    width: 320px;
+    margin: 120px auto 0;
     text-align: center;
     text-transform: uppercase;
-    font-size: 120px;
-    line-height: 140px;
-    /*background: url('/images/door_icon.png') no-repeat left top;
-    background-size: 80px auto;*/
+    font-size: 80px;
+    line-height: 100px;
+    white-space: nowrap;
+}
+
+h1.title img {
+    height: 70px;
+    position: relative;
+    top: -2px;
+    left: -2px;
+}
+
+h1.title span {
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    top: -39px;
+    left: -5px;
 }
 
 .home .buttons {
@@ -111,9 +127,20 @@ h1.title {
     margin-bottom: 8px;
 }
 
+.btn em {
+    font-style: normal;
+    position: relative;
+    top: -3px;
+}
+
 .btn.btn-default {
     border: #444 4px solid;
     background: transparent;
+}
+
+.btn.btn-default:hover, .btn.btn-default:active {
+    background: #444;
+    color: #FFF;
 }
 
 .btn.btn-primary {

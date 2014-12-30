@@ -8,7 +8,7 @@
  * Controller of the doorApp
  */
 angular.module('doorApp')
-  .controller('AddCtrl', function ($scope, URLSession, $location) {
+  .controller('AddCtrl', function ($scope, URLSession, $window) {
     
     filepicker.setKey("AFxAZKXCOSgaCvOFwcdwCz");
 
@@ -69,9 +69,10 @@ angular.module('doorApp')
         function(new_blob){
           var url = new_blob.url;
           URLSession.url = url;
-          console.log(url);
+          $window.location = "#/confirmation";
         }
       );
+
     }
 
     $scope.uploadpicture = function() {
@@ -86,7 +87,7 @@ angular.module('doorApp')
         function(Blobs){
           var url = Blobs[0].url;
           URLSession.url = url;
-          console.log(url);
+          $window.location = "#/confirmation";
         }, function(errors) {
           console.log(JSON.stringify(errors));
         }

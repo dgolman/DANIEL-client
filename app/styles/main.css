@@ -81,18 +81,52 @@ body {
 
 /* DANIEL custom styles */
 
-h1.title {
-    margin: 0 auto 16px;
-    text-transform: uppercase;
+hr {
+    display: none;
 }
 
-.home .btn {
-    margin: 0 auto 8px;
-    max-width: 200px;
+body {
+    background: url('/images/door_background.png') no-repeat fixed center center;
+    background-size: cover;
+}
+
+h1.title {
+    margin: 100px auto 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 120px;
+    line-height: 140px;
+    /*background: url('/images/door_icon.png') no-repeat left top;
+    background-size: 80px auto;*/
+}
+
+.home .buttons {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.btn.btn-default {
+    border: #444 4px solid;
+    background: transparent;
+}
+
+.btn.btn-primary {
+    border: #444 4px solid;
+    background-color: #444;
 }
 
 .glyphicon {
     word-spacing: -0.6em;
+}
+
+.adduser {
+    margin-top: 16px;
 }
 
 .confirm img {

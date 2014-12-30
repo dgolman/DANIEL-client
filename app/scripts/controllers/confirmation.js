@@ -15,7 +15,7 @@ angular.module('doorApp')
   		//SEND Url to Server for facial processing
   		//dm.ngrok.com/upload
   		$http.post(
-            'http://daniel.ngrok.com/verify', 
+            'http://daniel.ngrok.com/upload', 
             {
                 img_url: URLSession.url
             }

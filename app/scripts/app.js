@@ -41,7 +41,7 @@ angular
             canvas       = document.querySelector('#canvas'),
             startbutton  = document.querySelector('#startbutton'),
             uploadbutton = document.querySelector('#uploadbutton'),
-            width = 320,
+            width = 350,
             height = 0;
 
         navigator.getMedia = ( navigator.getUserMedia ||
@@ -83,11 +83,13 @@ angular
           canvas.width = width;
           canvas.height = height;
           canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-          var data = canvas.toDataURL('image/png');
-          
+          var data = canvas.toDataURL('image/png').split(',', 2)[1];
           filepicker.store(
             data,
-            {mimetype: 'image/*'},
+            {
+              mimetype: 'image/png',
+              base64decode: true
+            },
             function(new_blob){
               console.log(new_blob.url);
             }
@@ -102,9 +104,14 @@ angular
               services: ['FACEBOOK','COMPUTER'],
               openTo: 'FACEBOOK',
               multiple: false,
-            },
+            }, {},
             function(Blobs){
-              console.log(JSON.stringify(Blobs));
+              var img = new Image();
+              img.src = Blobs[0].url;
+              img.onload = function(){
+                canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+              }
+              
             }, function(errors) {
               console.log(JSON.stringify(errors));
             }

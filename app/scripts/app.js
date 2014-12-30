@@ -30,9 +30,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/add', {
-        templateUrl: 'views/add.html',
-        controller: 'AddCtrl'
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl'
       })
       .when('/confirmation', {
         templateUrl: 'views/confirmation.html',

@@ -1,0 +1,17 @@
+<div class="row" webcam>
+    <div class="row">
+        <video id="video"></video>
+    </div>
+    <div class="row adduser">
+        <button id="startbutton" ng-click="takepicture()" class="btn btn-large btn-primary">
+            <span class="glyphicon glyphicon-camera"> take photo</span>
+        </button>
+        <button id="uploadbutton" ng-click="uploadpicture()" class="btn btn-large btn-default">
+            <span class="glyphicon glyphicon-picture"> upload photo</span>
+        </button>
+    </div>
+    <hr />
+	<div class="row">
+		<canvas style="display:none" id="canvas"></canvas>
+	</div>
+</div>

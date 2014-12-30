@@ -17,13 +17,12 @@ angular.module('doorApp')
   		$http.post(
             'http://daniel.ngrok.com/verify', 
             {
-                img_url: URLSession.url,
-                // name: $scope.name
+                img_url: URLSession.url
             }
         )
-		  .success(function(response) {
-  			console.log(response);
-  		});
+      .success(function(response) {
+        console.log(response);
+      });
   	}
 
   });

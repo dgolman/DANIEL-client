@@ -13,7 +13,7 @@ angular.module('doorApp')
   	$scope.confirmed = function() {
   		//SEND Url to Server for facial processing
   		//dm.ngrok.com/upload
-  		$http.post('http://daniel.ngrok.com/upload', {img_url: 'https://www.filepicker.io/api/file/gsDm8qYTOuduxitthSIj', name: "Daniel"})
+  		$http.post('http://daniel.ngrok.com/upload', {img_url: 'https://www.filepicker.io/api/file/kmqTYsDXQH6rXztRd24v', name: "Daniel"})
 		.success(function(response) {
   			console.log(response);
   		});

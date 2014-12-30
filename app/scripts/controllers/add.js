@@ -56,9 +56,9 @@ angular.module('doorApp')
     }, false);
 
     $scope.takepicture = function() {
-      // canvas.width = width;
-      // canvas.height = height;
-      // canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
       var data = canvas.toDataURL('image/png').split(',', 2)[1];
       filepicker.store(
         data,
@@ -70,7 +70,6 @@ angular.module('doorApp')
           var url = new_blob.url;
           URLSession.url = url;
           console.log(url);
-          $location.path('/confirmation');
         }
       );
     }
@@ -88,7 +87,6 @@ angular.module('doorApp')
           var url = Blobs[0].url;
           URLSession.url = url;
           console.log(url);
-          $location.path('/confirmation');
         }, function(errors) {
           console.log(JSON.stringify(errors));
         }

@@ -81,10 +81,11 @@ body {
 /* DANIEL custom styles */
 
 .home {
-    text-align: center;
 }
 
 h1.title {
+    margin: 0 auto 16px;
+    text-align: center;
     text-transform: uppercase;
 }
 

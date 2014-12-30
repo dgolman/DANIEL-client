@@ -77,3 +77,18 @@ body {
     border-bottom: 0;
   }
 }
+
+/* DANIEL custom styles */
+
+.home {
+    text-align: center;
+}
+
+h1.title {
+    text-transform: uppercase;
+}
+
+.home .btn {
+    margin: 0 auto 8px;
+    max-width: 200px;
+}

@@ -1,14 +1,17 @@
 <div class="row" webcam>
-  	<div class="col-lg-8 col-lg-offset-3">
-	  	<video  id="video"></video>
-	  	<div class="row">
-		  	<div class="col-lg-10 col-lg-offset-2">
-			  <button id="startbutton" class="btn btn-large btn-primary">Take photo</button>
-			  <button id="uploadbutton" class="btn btn-large btn-primary">Upload photo</button>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-6">
+    <div class="row">
+        <video id="video"></video>
+    </div>
+    <div class="row adduser">
+        <button id="startbutton" class="btn btn-large btn-primary">
+            <span class="glyphicon glyphicon-camera"> take photo</span>
+        </button>
+        <button id="uploadbutton" class="btn btn-large btn-default">
+            <span class="glyphicon glyphicon-picture"> upload photo</span>
+        </button>
+    </div>
+    <hr />
+	<div class="row">
 		<canvas id="canvas"></canvas>
 		<img id="image"/>
 	</div>

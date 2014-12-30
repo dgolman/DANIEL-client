@@ -38,6 +38,10 @@ angular
         templateUrl: 'views/confirmation.html',
         controller: 'ConfirmationCtrl'
       })
+      .when('/detect', {
+        templateUrl: 'views/verification.html',
+        controller: 'VerificationCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -17,7 +17,8 @@ angular.module('doorApp')
   		$http.post(
             'http://daniel.ngrok.com/upload', 
             {
-                img_url: URLSession.url
+                img_url: URLSession.url,
+                name: $scope.name
             }
         )
 		  .success(function(response) {

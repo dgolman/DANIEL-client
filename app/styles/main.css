@@ -94,3 +94,16 @@ h1.title {
 .glyphicon {
     word-spacing: -0.6em;
 }
+
+.confirm img {
+    max-width: 300px;
+}
+
+.confirm .row input {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.confirm .row {
+    margin-bottom: 16px;
+}

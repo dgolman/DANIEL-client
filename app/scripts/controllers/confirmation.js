@@ -9,7 +9,7 @@
  */
 angular.module('doorApp')
   .controller('ConfirmationCtrl', function ($scope, URLSession, $http) {
-    
+    $scope.image_src = URLSession.url;
   	$scope.confirmed = function() {
   		//SEND Url to Server for facial processing
   		//dm.ngrok.com/upload

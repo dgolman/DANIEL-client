@@ -17,7 +17,14 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+    // We need to setup some parameters for http requests
+    // These three lines are all you need for CORS support
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

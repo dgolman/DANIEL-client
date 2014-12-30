@@ -2,14 +2,13 @@
 
 /**
  * @ngdoc function
- * @name doorApp.controller:MainCtrl
+ * @name doorApp.controller:AddCtrl
  * @description
- * # MainCtrl
+ * # AddCtrl
  * Controller of the doorApp
  */
 angular.module('doorApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('AddCtrl', function ($scope) {
     
-
-
+   
   });

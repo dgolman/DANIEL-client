@@ -8,15 +8,14 @@
  * Controller of the doorApp
  */
 angular.module('doorApp')
-  .controller('AdminCtrl', function ($scope) {
-
+  .controller('AdminCtrl', function ($scope, $http) {
     $(document).ready(function(){
         $('body').css("background","white");
     });
     
   	$scope.takingPicture = true;
   	$scope.loading = false;
- 	var width = 320;
+ 	  var width = 320;
     var height = 0;
     filepicker.setKey("AFxAZKXCOSgaCvOFwcdwCz");
 
@@ -35,6 +34,15 @@ angular.module('doorApp')
         function(new_blob){
           console.log(new_blob.url);
           $scope.url = new_blob.url;
+          $http.post(
+            'http://daniel.ngrok.com/verify', 
+            {
+                img_url: $scope.url
+            }
+	        )
+			  .success(function(response) {
+	  			console.log(response);
+	  		});
           $scope.takingPicture = false;	
           $scope.loading = false;
           $scope.$apply();

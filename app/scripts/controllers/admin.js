@@ -9,10 +9,13 @@
  */
 angular.module('doorApp')
   .controller('AdminCtrl', function ($scope, $http) {
+    $(document).ready(function(){
+        $('body').css("background","white");
+    });
     
   	$scope.takingPicture = true;
   	$scope.loading = false;
- 	var width = 350;
+ 	  var width = 320;
     var height = 0;
     filepicker.setKey("AFxAZKXCOSgaCvOFwcdwCz");
 

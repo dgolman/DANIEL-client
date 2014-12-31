@@ -81,13 +81,15 @@ body {
 
 /* DANIEL custom styles */
 
-hr {
-    display: none;
+.daniel-admin hr {
+    border: 0;
+    background: #444;
+    height: 2px;
+    position: relative;
+    top: -26px;
 }
 
 body {
-    background: url('/images/door_background.png') no-repeat fixed center center;
-    background-size: cover;
     min-width: 320px;
 }
 
@@ -101,11 +103,35 @@ h1.title {
     white-space: nowrap;
 }
 
+h1.title a, h1.title a:hover {
+    color: #333;
+    text-decoration:none;
+}
+
+.daniel-admin h1.title {
+    width: 100%;
+    margin: -14px 0 0 10px;
+    font-size: 40px;
+    text-align: left;
+    line-height: 40px;
+}
+
+.daniel-admin h1.title img {
+    height: 36px;
+    top: -1px;
+}
+
+.daniel-admin h1.title span {
+    font-size: 14px;
+    top: -19px;
+    left: -3px;
+}
+
 h1.title img {
     height: 70px;
     position: relative;
     top: -2px;
-    left: -2px;
+    left: -3px;
 }
 
 h1.title span {
@@ -114,6 +140,10 @@ h1.title span {
     position: relative;
     top: -39px;
     left: -5px;
+}
+
+.row.title {
+    height: 45px;
 }
 
 .home .buttons {
@@ -140,7 +170,13 @@ h1.title span {
 
 .btn.btn-default:hover, .btn.btn-default:active {
     background: #444;
-    color: #FFF;
+    color: #FF007F;
+}
+
+.btn.btn-primary:hover, .btn.btn-primary:active {
+    color: #FF007F;
+    background: #FF0;
+    border: #FF0 4px solid;
 }
 
 .btn.btn-primary {
@@ -150,10 +186,6 @@ h1.title span {
 
 .glyphicon {
     word-spacing: -0.6em;
-}
-
-.adduser {
-    margin-top: 16px;
 }
 
 .confirm img {
@@ -167,4 +199,125 @@ h1.title span {
 
 .confirm .row {
     margin-bottom: 16px;
+}
+
+.usergrid .user {
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.usergrid .user .img:hover img {
+    opacity: 0.3;
+}
+
+.usergrid .user .img:hover .overlay {
+    display: block;
+    color: #FF007F;
+}
+
+.usergrid .user .img {
+    background: #000;
+}
+
+.usergrid .user img {
+    width: 100%;
+    cursor: pointer;
+    z-index: -1;
+    display: block;
+}
+
+.usergrid .user .overlay {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 22px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height:15px;
+}
+
+.usergrid .user .overlay .name {
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding-left: 6px;
+    float: left;
+}
+
+.usergrid .user .overlay .name.glyphicon-star::before {
+    position: relative;
+    right: 2px;
+    top: 2px;
+}
+
+.usergrid .user .overlay .edit {
+    padding-right: 5px;
+    float: right;
+}
+
+.usergrid .addicon .add.default {
+    display: block;
+}                  
+
+.usergrid .addicon .add.hover {
+    display: none;
+}
+
+.usergrid .addicon:hover .add.default {
+    display: none;
+}
+
+.usergrid .addicon:hover .add.hover {
+    display: block;
+}
+
+.modal.adduser h3 {
+    font-size: 32px;
+    color: #FF007F;    
+}
+
+.modal.adduser .modal-header {
+    border: none;
+    padding-bottom: 5px;
+}
+
+.modal.adduser .adduserbuttons {
+    margin: 15px 0;
+}
+
+.modal.adduser .modal-dialog {
+    max-width: 500px;
+}
+
+.modal.adduser .modal-footer {
+    border: none;
+    padding-top: 0;
+}
+
+.modal.adduser .form-horizontal {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.modal.adduser .form-horizontal .ck {
+    text-align: left;
+}
+
+.modal.adduser .form-horizontal .checkbox {
+    display: inline;
+    text-align: left;
+}
+
+.modal.adduser .form-horizontal .checkbox label {
+    padding-left: 0;
+    color: #666;
+    font-size: 15px;
+}
+
+.modal.adduser .form-horizontal .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+    margin-right: 4px;
 }

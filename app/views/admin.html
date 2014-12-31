@@ -13,7 +13,7 @@
 <div class="row">
     <div class="usergrid">
         <div class="user col-xs-6 col-sm-3" ng-repeat="user in users">
-            <div class="img">
+            <div class="img" data-toggle="modal" data-target="#deleteUser{{user._id}}">
                 <img src="{{user.img_url}}" />
                 <div class="overlay">
                     <span ng-show="user.admin" class="glyphicon glyphicon-star" />
@@ -31,7 +31,28 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modals -->
+<div class="modal fade adduser" id="deleteUser{{user._id}}" tabindex="-1" ng-repeat="user in users" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">edit human</h3>
+            </div>
+            <div class="modal-body">
+                <h2>{{user.name}}</h2>
+                <br />
+                <button id="deletebutton" data-dismiss="modal" ng-click="deleteUser(user)" class="btn btn-large btn-default">
+                    <span class="glyphicon glyphicon-remove"> remove</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="modal fade adduser" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -79,7 +100,7 @@
       <div class="modal-footer" ng-show="!takingPicture">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" ng-click="addNewUser(user)" class="btn btn-primary glyphicon glyphicon-ok"> save</button>
+              <button type="submit" ng-click="addNewUser(user)" data-dismiss="modal" class="btn btn-primary glyphicon glyphicon-ok"> save</button>
             </div>
         </div>
       </div>

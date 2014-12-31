@@ -14,7 +14,6 @@ angular.module('doorApp')
     });
     
     $http.get('http://dm.ngrok.com/users').success(function(response) {
-        console.log(response.users);
         $scope.users = response.users;
     });
 
@@ -61,6 +60,15 @@ angular.module('doorApp')
             $window.location.href = '/#/admin';
             $window.location.reload();
         });
+    }
+
+    $scope.deleteUser = function(user) {
+        $http.delete('http://dm.ngrok.com/user/' + user._id)
+            .success(function(response) {
+                console.log(response);
+                $window.location.href = '/#/admin';
+                $window.location.reload();
+            });
     }
 
     $scope.uploadpicture = function() {

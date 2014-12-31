@@ -12,47 +12,12 @@
 <!-- Admin table -->
 <div class="row">
     <div class="usergrid">
-        <div class="user col-xs-6 col-sm-3">
+        <div class="user col-xs-6 col-sm-3" ng-repeat="user in users">
             <div class="img">
-                <img src="/images/user_placeholder.png" />
+                <img src="{{user.img_url}}" />
                 <div class="overlay">
-                    <span class="name glyphicon glyphicon-star">Samantha</span>
-                    <span class="edit glyphicon glyphicon-pencil" />
-                </div>
-            </div>
-        </div>
-        <div class="user col-xs-6 col-sm-3">
-            <div class="img">
-                <img src="/images/user_placeholder.png" />
-                <div class="overlay">    
-                    <span class="name glyphicon glyphicon-star">Daniel</span>
-                    <span class="edit glyphicon glyphicon-pencil" />
-                </div>
-            </div>
-        </div>
-        <div class="user col-xs-6 col-sm-3">
-            <div class="img">
-                <img src="/images/user_placeholder.png" />
-                <div class="overlay">    
-                    <span class="name glyphicon">Adam</span>
-                    <span class="edit glyphicon glyphicon-pencil" />
-                </div>
-            </div>
-        </div>
-        <div class="user col-xs-6 col-sm-3">
-            <div class="img">
-                <img src="/images/user_placeholder.png" />
-                <div class="overlay">    
-                    <span class="name glyphicon">Miki</span>
-                    <span class="edit glyphicon glyphicon-pencil" />
-                </div>
-            </div>
-        </div>
-        <div class="user col-xs-6 col-sm-3">
-            <div class="img">
-                <img src="/images/user_placeholder.png" />
-                <div class="overlay">    
-                    <span class="name glyphicon">Sarit</span>
+                    <span ng-show="user.admin" class="glyphicon glyphicon-star" />
+                    <span class="name glyphicon">{{user.name}}</span>
                     <span class="edit glyphicon glyphicon-pencil" />
                 </div>
             </div>
@@ -80,14 +45,14 @@
         <div class="row" ng-show="!takingPicture">
             <form class="form-horizontal">
               <div class="form-group" style="margin-top:15px;">
-                  <input type="text" class="form-control" placeholder="name" name="name" />
+                  <input ng-model="user.name" type="text" class="form-control" placeholder="name" name="name" />
               </div>
               <div class="form-group">
-                  <input type="phone" class="form-control"  placeholder="phone #" name="phone" />
+                  <input ng-model="user.phone" type="phone" class="form-control"  placeholder="phone #" name="phone" />
               </div>
               <div class="form-group ck">
                   <div class="checkbox">
-                    <input type="checkbox" name="admin" />
+                    <input ng-model="user.admin" type="checkbox" name="admin" />
                     <label for="admin">admin privileges?</label>
                   </div>
               </div>
@@ -114,7 +79,7 @@
       <div class="modal-footer" ng-show="!takingPicture">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-primary glyphicon glyphicon-ok"> save</button>
+              <button type="submit" ng-click="addNewUser(user)" class="btn btn-primary glyphicon glyphicon-ok"> save</button>
             </div>
         </div>
       </div>

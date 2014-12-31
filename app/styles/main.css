@@ -204,7 +204,6 @@ h1.title span {
 .usergrid .user {
     padding: 15px;
     position: relative;
-    z-index: 1;
 }
 
 .usergrid .user .img:hover img {
@@ -217,14 +216,20 @@ h1.title span {
 }
 
 .usergrid .user .img {
-    background: #000;
+    background: #111;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    height: 155px;
+    width: 155px;
 }
 
-.usergrid .user img {
-    width: 100%;
+.usergrid .user .img img {
+    position: absolute;
     cursor: pointer;
-    z-index: -1;
     display: block;
+    vertical-align: middle;
+    top: -50%;
 }
 
 .usergrid .user .overlay {
@@ -232,9 +237,8 @@ h1.title span {
     cursor: pointer;
     position: absolute;
     left: 0;
-    bottom: 22px;
-    width: 100%;
-    padding: 0 15px;
+    bottom: 7px;
+    width: 155px;
     font-size: 16px;
     line-height:15px;
 }
@@ -246,15 +250,21 @@ h1.title span {
     float: left;
 }
 
-.usergrid .user .overlay .name.glyphicon-star::before {
-    position: relative;
-    right: 2px;
-    top: 2px;
+.usergrid .user .overlay .glyphicon-star {
+    float: left;
+    display: block;
+    margin-left: 7px;
 }
 
 .usergrid .user .overlay .edit {
     padding-right: 5px;
     float: right;
+}
+
+.usergrid .addicon img.add {
+    width: 155px;
+    height: 155px;
+    cursor: pointer;
 }
 
 .usergrid .addicon .add.default {
@@ -320,4 +330,11 @@ h1.title span {
     position: relative;
     margin-left: 0;
     margin-right: 4px;
+}
+
+.modal.adduser #video {
+    width: 300px;
+    height: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
 }

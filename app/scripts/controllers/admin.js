@@ -8,22 +8,27 @@
  * Controller of the doorApp
  */
 angular.module('doorApp')
-  .controller('AdminCtrl', function ($scope, $http) {
+  .controller('AdminCtrl', function ($scope, $http, $window) {
     $(document).ready(function(){
         $('body').css("background","white");
     });
     
+    $http.get('http://dm.ngrok.com/users').success(function(response) {
+        console.log(response.users);
+        $scope.users = response.users;
+    });
+
   	$scope.takingPicture = true;
   	$scope.loading = false;
- 	  var width = 320;
-    var height = 0;
+    var width = 180;
+    var height = 320;
     filepicker.setKey("AFxAZKXCOSgaCvOFwcdwCz");
 
     $scope.takepicture = function() {
       $scope.loading = true;
       canvas.width = width;
       canvas.height = height;
-      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+      canvas.getContext('2d').drawImage(video, 0, 0, width, height, 0, 0, width, height);
       var data = canvas.toDataURL('image/png').split(',', 2)[1];
       filepicker.store(
         data,
@@ -34,15 +39,6 @@ angular.module('doorApp')
         function(new_blob){
           console.log(new_blob.url);
           $scope.url = new_blob.url;
-          $http.post(
-            'http://daniel.ngrok.com/verify', 
-            {
-                img_url: $scope.url
-            }
-	        )
-			  .success(function(response) {
-	  			console.log(response);
-	  		});
           $scope.takingPicture = false;	
           $scope.loading = false;
           $scope.$apply();
@@ -50,6 +46,21 @@ angular.module('doorApp')
         }
       );
 
+    }
+
+    $scope.addNewUser = function() {
+        $http.post(
+            'http://dm.ngrok.com/users/new',
+            {
+                img_url: $scope.url,
+                name: $scope.user.name,
+                phone: $scope.user.phone
+            }
+        ).success(function(response) {
+            console.log(response);
+            $window.location.href = '/#/admin';
+            $window.location.reload();
+        });
     }
 
     $scope.uploadpicture = function() {
@@ -89,7 +100,7 @@ angular.module('doorApp')
 
 	    navigator.getMedia(
 	      {
-	        video: true,
+	        video: {"mandatory": {"minHeight": "320", "minWidth": "180", "maxHeight": "320", "maxWidth": "180"}, "optional": []},
 	        audio: false
 	      },
 	      function(stream) {
@@ -108,11 +119,10 @@ angular.module('doorApp')
 
 	    video.addEventListener('canplay', function(ev){
 	      if (!streaming) {
-	        height = video.videoHeight / (video.videoWidth/width);
-	        video.setAttribute('width', width);
-	        video.setAttribute('height', height);
-	        canvas.setAttribute('width', width);
-	        canvas.setAttribute('height', height);
+	        video.setAttribute('width', 180);
+	        video.setAttribute('height', 320);
+	        canvas.setAttribute('width', 180);
+	        canvas.setAttribute('height', 320);
 	        streaming = true;
 	      }
 	    }, false);

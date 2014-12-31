@@ -8,7 +8,7 @@
  * Controller of the doorApp
  */
 angular.module('doorApp')
-  .controller('AdminCtrl', function ($scope) {
+  .controller('AdminCtrl', function ($scope, $http) {
     
   	$scope.takingPicture = true;
   	$scope.loading = false;
@@ -31,6 +31,15 @@ angular.module('doorApp')
         function(new_blob){
           console.log(new_blob.url);
           $scope.url = new_blob.url;
+          $http.post(
+            'http://daniel.ngrok.com/verify', 
+            {
+                img_url: $scope.url
+            }
+	        )
+			  .success(function(response) {
+	  			console.log(response);
+	  		});
           $scope.takingPicture = false;	
           $scope.loading = false;
           $scope.$apply();
